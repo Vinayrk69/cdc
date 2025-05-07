@@ -1,107 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShopEase - Your Online Store</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: #f4f4f4;
-        }
-        header {
-            background: #222;
-            color: #fff;
-            padding: 1rem 2rem;
-            text-align: center;
-        }
-        .hero {
-            width: 100%;
-            max-height: 350px;
-            object-fit: cover;
-            display: block;
-        }
-        .products {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        .card {
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            width: 250px;
-            padding: 1rem;
-            text-align: center;
-            transition: box-shadow 0.2s;
-        }
-        .card:hover {
-            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-        }
-        .card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 6px;
-        }
-        .card h3 {
-            margin: 1rem 0 0.5rem 0;
-        }
-        .card p {
-            color: #555;
-        }
-        .price {
-            color: #e67e22;
-            font-weight: bold;
-            margin: 0.5rem 0;
-        }
-        .btn {
-            background: #27ae60;
-            color: #fff;
-            border: none;
-            padding: 0.5rem 1.2rem;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1rem;
-            margin-top: 0.5rem;
-        }
-        .btn:hover {
-            background: #219150;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Survey Form</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, rgba(0,0,50,0.7), rgba(0,0,50,0.7)),
+                  url('https://images.unsplash.com/photo-1519389950473-47ba0277781c') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 3rem auto;
+      background: rgba(0, 0, 0, 0.75);
+      padding: 2rem;
+      border-radius: 8px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    p.description {
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 2rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 0.6rem;
+      border-radius: 4px;
+      border: none;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .radio-group, .checkbox-group {
+      margin-top: 0.5rem;
+    }
+
+    /* Custom Radio Buttons */
+    .radio-group input[type="radio"] {
+      appearance: none;
+      background-color: #fff;
+      border: 2px solid #ccc;
+      width: 1.2rem;
+      height: 1.2rem;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+      cursor: pointer;
+      transition: border 0.2s ease-in-out;
+    }
+
+    .radio-group input[type="radio"]:checked {
+      border: 6px solid #3b82f6;
+      background-color: #fff;
+    }
+
+    .radio-group label {
+      display: flex;
+      align-items: center;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    /* Custom Checkboxes */
+    .checkbox-group input[type="checkbox"] {
+      appearance: none;
+      background-color: #fff;
+      border: 2px solid #ccc;
+      width: 1.2rem;
+      height: 1.2rem;
+      margin-right: 0.5rem;
+      cursor: pointer;
+      position: relative;
+      vertical-align: middle;
+    }
+
+    .checkbox-group input[type="checkbox"]:checked {
+      background-color: #3b82f6;
+      border-color: #3b82f6;
+    }
+
+    .checkbox-group input[type="checkbox"]:checked::after {
+      content: '✓';
+      position: absolute;
+      color: white;
+      font-size: 0.9rem;
+      top: -0.05rem;
+      left: 0.25rem;
+    }
+
+    .checkbox-group label {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    button {
+      width: 100%;
+      background-color: #27ae60;
+      color: white;
+      font-size: 1.1rem;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 4px;
+      margin-top: 1.5rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #219150;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>ShopEase</h1>
-        <p>Your favorite online store</p>
-    </header>
-    <img class="hero" src="https://images.unsplash.com/photo-1515168833906-d2a3b82b1a5e?auto=format&fit=crop&w=1200&q=80" alt="Ecommerce Hero">
-    <section class="products">
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1513708927688-890fe8a1df19?auto=format&fit=crop&w=400&q=80" alt="Sneakers">
-            <h3>Trendy Sneakers</h3>
-            <p>Comfortable and stylish sneakers for everyday wear.</p>
-            <div class="price">$49.99</div>
-            <button class="btn">Add to Cart</button>
-        </div>
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=400&q=80" alt="Headphones">
-            <h3>Wireless Headphones</h3>
-            <p>Experience music like never before with noise cancellation.</p>
-            <div class="price">$89.99</div>
-            <button class="btn">Add to Cart</button>
-        </div>
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1512499617640-c2f999098c01?auto=format&fit=crop&w=400&q=80" alt="Backpack">
-            <h3>Classic Backpack</h3>
-            <p>Spacious and durable backpack for all your needs.</p>
-            <div class="price">$39.99</div>
-            <button class="btn">Add to Cart</button>
-        </div>
-    </section>
+  <div class="container">
+    <h1>Survey Form</h1>
+    <p class="description">Thank you for helping us improve</p>
+    <form>
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+      <label for="age">Age (optional)</label>
+      <input type="number" id="age" placeholder="Age" min="10" max="99">
+
+      <label for="role">Current Role</label>
+      <select id="role" required>
+        <option value="">Select role</option>
+        <option>Student</option>
+        <option>Full Time Job</option>
+        <option>Full Time Learner</option>
+        <option>Prefer not to say</option>
+        <option>Other</option>
+      </select>
+
+      <label>Would you recommend us?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="recommend" value="definitely" required> Definitely</label>
+        <label><input type="radio" name="recommend" value="maybe"> Maybe</label>
+        <label><input type="radio" name="recommend" value="not-sure"> Not sure</label>
+      </div>
+
+      <label for="feature">Favorite Feature</label>
+      <select id="feature" required>
+        <option value="">Select an option</option>
+        <option>Challenges</option>
+        <option>Projects</option>
+        <option>Community</option>
+        <option>Open Source</option>
+      </select>
+
+      <label>What would you like to see improved? <span style="font-size: 0.9rem; color: #ccc;">(Check all that apply)</span></label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" value="front-end"> Front-end Projects</label>
+        <label><input type="checkbox" value="back-end"> Back-end Projects</label>
+        <label><input type="checkbox" value="data-vis"> Data Visualization</label>
+        <label><input type="checkbox" value="challenges"> Challenges</label>
+        <label><input type="checkbox" value="oss"> Open Source Community</label>
+        <label><input type="checkbox" value="help-rooms"> Gitter help rooms</label>
+        <label><input type="checkbox" value="videos"> Videos</label>
+        <label><input type="checkbox" value="meetups"> City Meetups</label>
+        <label><input type="checkbox" value="wiki"> Wiki</label>
+        <label><input type="checkbox" value="forum"> Forum</label>
+        <label><input type="checkbox" value="courses"> Additional Courses</label>
+      </div>
+
+      <label for="comments">Any comments or suggestions?</label>
+      <textarea id="comments" placeholder="Enter your comment here..."></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
 </body>
 </html>
-
